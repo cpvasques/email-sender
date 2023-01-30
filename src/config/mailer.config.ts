@@ -6,7 +6,7 @@ export const mailerConfig: MailerOptions = {
   transport: {
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
-    secure: true,
+    secure: false,
     tls: { rejectUnauthorized: false },
     auth: {
       user: process.env.SMTP_EMAIL,

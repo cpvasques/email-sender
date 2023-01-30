@@ -1,7 +1,6 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
-import { MailTemplate } from 'src/utils/templates/mails-template';
-import { mailerConfig } from 'src/config/mailer.config';
+import { MailTemplate } from 'src/utils/mails-template';
 
 @Injectable()
 export class MailService {
@@ -10,6 +9,7 @@ export class MailService {
   async sendEmail(param: any): Promise<void> {
     try {
       const testMail = MailTemplate.testMail(param);
+
       await this.mailerService.sendMail(testMail);
     } catch (error) {
       console.log(error);
